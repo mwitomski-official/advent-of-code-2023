@@ -10,43 +10,49 @@ namespace AdventOfCode2023.App.Day1
         private static partial Regex NumberRegex();
         [GeneratedRegex("(one)|(two)|(three)|(four)|(five)|(six)|(seven)|(eight)|(nine)|[0-9]", RegexOptions.RightToLeft)]
         private static partial Regex NumberReversedRegex();
-
         public string[] Lines { get; set; }
-        public enum Numbers
-        {
-            one = 1,
-            two = 2,
-            three = 3,
-            four = 4,
-            five = 5,
-            six = 6,
-            seven = 7,
-            eight = 8,
-            nine = 9
-        }
 
         public RecoveryManager()
         {
           Lines ??= FileManger.Read("Day1\\Data.txt");
         }
 
+        /// <summary>
+        /// The first and last digits from the string form a number, based on which the total for each line will be counted
+        /// </summary>
+        /// <returns></returns>
         public int RunCalibration()
             => Lines
                .Select(l => string.Join("", l.Where(g => char.IsDigit(g))))
                .Sum(l => int.Parse(l.FirstOrDefault().ToString() + l.LastOrDefault().ToString()));
 
+        /// <summary>
+        /// The first and last digits from the string form a number, 
+        /// based on which the total for each line will be counted. 
+        /// Includes figures written in words
+        /// </summary>
+        /// <returns></returns>
         public int RunSecondCalibration()
             => Lines
-            .Select(line => GetNUmber(line))
+            .Select(line => GetNumber(line))
             .Sum();
 
-        private int GetNUmber(string line)
+        /// <summary>
+        /// Returns the number that consists of the first and last digits found in the string, 
+        /// taking into account the digits written in words
+        /// </summary>
+        /// <param name="line"></param>
+        /// <returns></returns>
+        private int GetNumber(string line)
         {
             var numberRegex = NumberRegex();
             var numberRegexFromRight = NumberReversedRegex();
 
+            // Set [left number] using [Number Regex]
             string leftNumber = numberRegex
                 .Match(line).Value;
+
+            // Set [right number] using [Number Regex From Right]
             string rightNumber = numberRegexFromRight
                 .Match(line).Value;
             
