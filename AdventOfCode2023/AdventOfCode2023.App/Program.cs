@@ -3,6 +3,7 @@
 
 using AdventOfCode2023.App.Day1;
 using AdventOfCode2023.App.Day2;
+using AdventOfCode2023.App.Day3;
 
 // Day 1 - 01.12.2023
 // Task 1.1
@@ -34,3 +35,14 @@ Console.WriteLine($"Task 2.1 - Your puzzle answer was: {sumOfAvailableGameIds}")
 int result = cubeManager.GetCalcMaxNumberOfCubesEachColor();
 
 Console.WriteLine($"Task 2.2 - Your puzzle answer was: {result}");
+
+
+// Day 3 - 03.12.2023
+// Task 3.1
+GearRatioManager gearRatioManager = new();
+var solvedEngineSchematic = gearRatioManager.SolveEngineSchematic();
+Console.WriteLine($"Task 3.1 - Your puzzle answer was: {solvedEngineSchematic}");
+
+
+var solvedImprovedEngineSchematic = gearRatioManager.SolveImprovedEngineSchematic();
+Console.WriteLine($"Task 3.2 - Your puzzle answer was: {solvedImprovedEngineSchematic}");
