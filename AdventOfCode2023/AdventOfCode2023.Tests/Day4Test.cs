@@ -19,4 +19,14 @@ public class Day4Test
 
         Assert.That(result, Is.EqualTo(myScore));
     }
+
+    [Test] // 8805731
+    public void GetTotalPointsIncludedCopyOfCards_ReturnsCorrectValue()
+    {
+        int myScore = 8805731;
+        ScratchcardsManager scratchcardsManager = new();
+        var result = scratchcardsManager.GetTotalPointsIncludedCopyOfCards();
+
+        Assert.That(result, Is.EqualTo(myScore));
+    }
 }

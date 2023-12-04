@@ -53,8 +53,8 @@ Console.WriteLine($"Task 3.2 - Your puzzle answer was: {solvedImprovedEngineSche
 // Task 4.1
 ScratchcardsManager scratchcardsManager = new();
 var scratchcardsTotalPoints = scratchcardsManager.GetTotalPoints();
-Console.WriteLine($"Task 3.1 - Your puzzle answer was: {scratchcardsTotalPoints}");
+Console.WriteLine($"Task 4.1 - Your puzzle answer was: {scratchcardsTotalPoints}");
 
 // Task 4.2
-var scratchcardsTotalPoints2 = scratchcardsManager.GetTotalPointsincludedCopyOfCards();
-Console.WriteLine($"Task 3.1 - Your puzzle answer was: {scratchcardsTotalPoints2}");
+var totalPointsIncludedCopyOfCards = scratchcardsManager.GetTotalPointsIncludedCopyOfCards();
+Console.WriteLine($"Task 4.2 - Your puzzle answer was: {totalPointsIncludedCopyOfCards}");

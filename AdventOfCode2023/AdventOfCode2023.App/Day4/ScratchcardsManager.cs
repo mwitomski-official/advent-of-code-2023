@@ -53,63 +53,51 @@ public class ScratchcardsManager
 
     // ------ LAB ------
     // 2nd part doesn't work
-    public int GetTotalPointsincludedCopyOfCards()
+    public int GetTotalPointsIncludedCopyOfCards()
     {
-        var scratchcardsData = TestLines.Select(line => line.Split(':')[1].Trim().Split(" | "));
-        var scratchcardsCount = CalculateTotalScratchcards(scratchcardsData);
+        // Extract scratchcards data from input lines
+        var scratchcards = ExtractScratchcardsData(Lines);
 
-        return scratchcardsCount;
-    }
+        var totalScratchcards = 0;
 
-    int CalculateTotalScratchcards(IEnumerable<string[]> scratchcardsData)
-    {
-        var scratchcardsDictionary = new Dictionary<int, int>();
-
-        foreach (var pair in scratchcardsData)
+        // Iterate through scratchcards to calculate total points and update counts
+        for (int currentIndex = 0; currentIndex < scratchcards.Length; currentIndex++)
         {
-            var winningNumbers = pair[0].Split(" ", StringSplitOptions.RemoveEmptyEntries);
-            var participantNumbers = pair[1].Split(" ", StringSplitOptions.RemoveEmptyEntries);
+            var (winningNumbers, count) = scratchcards[currentIndex];
 
-            int matchingNumbersCount = winningNumbers.Intersect(participantNumbers).Count();
+            // Update counts for next levels of copies
+            UpdateCountsForNextLevels(scratchcards, currentIndex, winningNumbers, count);
 
-            // Calculate the count of copies for the current card
-            int copiesCount = (int)Math.Pow(2, matchingNumbersCount - 1);
-
-            // Update the count of scratchcards in the dictionary
-            if (!scratchcardsDictionary.ContainsKey(copiesCount))
-            {
-                scratchcardsDictionary[copiesCount] = 1;
-            }
-            else
-            {
-                scratchcardsDictionary[copiesCount]++;
-            }
-
-            // Process copies for the current card
-            ProcessCopies(scratchcardsDictionary, copiesCount);
+            // Accumulate total scratchcards
+            totalScratchcards += count;
         }
 
-        // Calculate the total count of scratchcards
-        return scratchcardsDictionary.Values.Sum();
+        return totalScratchcards;
     }
 
-    void ProcessCopies(Dictionary<int, int> scratchcardsDictionary, int copiesCount)
+    // Extract scratchcards data from input lines
+    private (int winningNumbers, int count)[] ExtractScratchcardsData(string[] lines)
     {
-        // Iterate through copies and process further copies if needed
-        var existingKeys = scratchcardsDictionary.Keys.ToList(); // To avoid modifying the dictionary during iteration
-
-        foreach (var key in existingKeys)
-        {
-            // Check if the next level of copies exists in the dictionary
-            var nextLevelKey = key * 2;
-
-            if (!scratchcardsDictionary.ContainsKey(nextLevelKey))
+        return lines
+            .Select(line => line.Split(' ', StringSplitOptions.RemoveEmptyEntries).Skip(2).ToList())
+            .Select(numbers =>
             {
-                scratchcardsDictionary[nextLevelKey] = 0;  // Initialize the count if it doesn't exist
-            }
+                // Extract winning and participant numbers for each scratchcard
+                var winningNumbers = numbers.TakeWhile(x => x != "|").ToHashSet();
+                var participantNumbers = numbers.SkipWhile(x => x != "|").Skip(1).ToHashSet();
+                // Calculate the count of matching numbers and set initial count to 1
+                return (winningNumbers: winningNumbers.Intersect(participantNumbers).Count(), count: 1);
+            })
+            .ToArray();
+    }
 
-            // Update the count of scratchcards for the next level of copies
-            scratchcardsDictionary[nextLevelKey] += scratchcardsDictionary[key];
+    // Update counts for next levels of copies
+    private void UpdateCountsForNextLevels((int winningNumbers, int count)[] scratchcards, int currentIndex, int winningNumbers, int count)
+    {
+        for (int nextIndex = currentIndex + 1, remainingLevels = winningNumbers; nextIndex < scratchcards.Length && remainingLevels > 0; nextIndex++, remainingLevels--)
+        {
+            // Increment the count for next levels of copies
+            scratchcards[nextIndex].count += count;
         }
     }
 }
