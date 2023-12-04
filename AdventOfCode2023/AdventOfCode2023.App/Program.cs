@@ -4,6 +4,7 @@
 using AdventOfCode2023.App.Day1;
 using AdventOfCode2023.App.Day2;
 using AdventOfCode2023.App.Day3;
+using AdventOfCode2023.App.Day4;
 
 // Day 1 - 01.12.2023
 // Task 1.1
@@ -46,3 +47,14 @@ Console.WriteLine($"Task 3.1 - Your puzzle answer was: {solvedEngineSchematic}")
 
 var solvedImprovedEngineSchematic = gearRatioManager.SolveImprovedEngineSchematic();
 Console.WriteLine($"Task 3.2 - Your puzzle answer was: {solvedImprovedEngineSchematic}");
+
+
+// Day 4 - 04.12.2023
+// Task 4.1
+ScratchcardsManager scratchcardsManager = new();
+var scratchcardsTotalPoints = scratchcardsManager.GetTotalPoints();
+Console.WriteLine($"Task 3.1 - Your puzzle answer was: {scratchcardsTotalPoints}");
+
+// Task 4.2
+var scratchcardsTotalPoints2 = scratchcardsManager.GetTotalPointsincludedCopyOfCards();
+Console.WriteLine($"Task 3.1 - Your puzzle answer was: {scratchcardsTotalPoints2}");

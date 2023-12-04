@@ -9,8 +9,8 @@ internal class Day3Test
     {
     }
 
-    [Test]
-    public void Solve_EngineSchematic_ReturnsCorrectValu()
+    [Test] // 556057
+    public void Solve_EngineSchematic_ReturnsCorrectValue()
     {
         int myScore = 556057;
         GearRatioManager gearRatioManager = new();
