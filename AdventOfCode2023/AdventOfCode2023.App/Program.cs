@@ -5,6 +5,7 @@ using AdventOfCode2023.App.Day1;
 using AdventOfCode2023.App.Day2;
 using AdventOfCode2023.App.Day3;
 using AdventOfCode2023.App.Day4;
+using AdventOfCode2023.App.Day5;
 
 // Day 1 - 01.12.2023
 // Task 1.1
@@ -58,3 +59,7 @@ Console.WriteLine($"Task 4.1 - Your puzzle answer was: {scratchcardsTotalPoints}
 // Task 4.2
 var totalPointsIncludedCopyOfCards = scratchcardsManager.GetTotalPointsIncludedCopyOfCards();
 Console.WriteLine($"Task 4.2 - Your puzzle answer was: {totalPointsIncludedCopyOfCards}");
+
+// Day 5 - 05.12.2023
+FertilizerManager fertilizerManager = new();
+fertilizerManager.GetLowestLocationNumber();
