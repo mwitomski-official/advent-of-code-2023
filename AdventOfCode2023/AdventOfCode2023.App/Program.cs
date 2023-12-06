@@ -6,6 +6,7 @@ using AdventOfCode2023.App.Day2;
 using AdventOfCode2023.App.Day3;
 using AdventOfCode2023.App.Day4;
 using AdventOfCode2023.App.Day5;
+using AdventOfCode2023.App.Day6;
 
 // Day 1 - 01.12.2023
 // Task 1.1
@@ -62,4 +63,15 @@ Console.WriteLine($"Task 4.2 - Your puzzle answer was: {totalPointsIncludedCopyO
 
 // Day 5 - 05.12.2023
 FertilizerManager fertilizerManager = new();
-fertilizerManager.GetLowestLocationNumber();
+var lowestLocationNumber = fertilizerManager.GetLowestLocationNumber();
+Console.WriteLine($"Task 5.1 - Your puzzle answer was: {lowestLocationNumber}");
+
+// Day 6 - 06.12.2023
+BoatManager boatManager = new();
+var numberOfWaysYouCanBeatTheRecord = 
+    boatManager.GetNumberOfWaysYouCanBeatTheRecord();
+Console.WriteLine($"Task 6.1 - Your puzzle answer was: {numberOfWaysYouCanBeatTheRecord}");
+
+var numberOfWaysYouCanBeatTheRecordSignle = 
+    boatManager.GetNumberOfWaysYouCanBeatTheRecordSingle();
+Console.WriteLine($"Task 6.2 - Your puzzle answer was: {numberOfWaysYouCanBeatTheRecordSignle}");
