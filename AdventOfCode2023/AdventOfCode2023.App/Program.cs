@@ -7,6 +7,7 @@ using AdventOfCode2023.App.Day3;
 using AdventOfCode2023.App.Day4;
 using AdventOfCode2023.App.Day5;
 using AdventOfCode2023.App.Day6;
+using AdventOfCode2023.App.Day7;
 
 // Day 1 - 01.12.2023
 // Task 1.1
@@ -62,16 +63,29 @@ var totalPointsIncludedCopyOfCards = scratchcardsManager.GetTotalPointsIncludedC
 Console.WriteLine($"Task 4.2 - Your puzzle answer was: {totalPointsIncludedCopyOfCards}");
 
 // Day 5 - 05.12.2023
+// Task 5.1
 FertilizerManager fertilizerManager = new();
 var lowestLocationNumber = fertilizerManager.GetLowestLocationNumber();
 Console.WriteLine($"Task 5.1 - Your puzzle answer was: {lowestLocationNumber}");
 
 // Day 6 - 06.12.2023
+// Task 6.1
 BoatManager boatManager = new();
 var numberOfWaysYouCanBeatTheRecord = 
     boatManager.GetNumberOfWaysYouCanBeatTheRecord();
 Console.WriteLine($"Task 6.1 - Your puzzle answer was: {numberOfWaysYouCanBeatTheRecord}");
 
+// Task 6.2
 var numberOfWaysYouCanBeatTheRecordSignle = 
     boatManager.GetNumberOfWaysYouCanBeatTheRecordSingle();
 Console.WriteLine($"Task 6.2 - Your puzzle answer was: {numberOfWaysYouCanBeatTheRecordSignle}");
+
+// Day 7 - 07.12.2023
+// Task 7.1
+CardManager cardManager = new();
+// 253205868
+var gameWithoutJokers = cardManager.ParseGames();
+Console.WriteLine($"Task 7.1 - Your puzzle answer was: {gameWithoutJokers}");
+
+var gameWithJokers = cardManager.ParseGames(true);
+Console.WriteLine($"Task 7.2 - Your puzzle answer was: {gameWithJokers}");
