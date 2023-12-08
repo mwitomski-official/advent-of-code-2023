@@ -8,6 +8,7 @@ using AdventOfCode2023.App.Day4;
 using AdventOfCode2023.App.Day5;
 using AdventOfCode2023.App.Day6;
 using AdventOfCode2023.App.Day7;
+using AdventOfCode2023.App.Day8;
 
 // Day 1 - 01.12.2023
 // Task 1.1
@@ -89,3 +90,9 @@ Console.WriteLine($"Task 7.1 - Your puzzle answer was: {gameWithoutJokers}");
 
 var gameWithJokers = cardManager.ParseGames(true);
 Console.WriteLine($"Task 7.2 - Your puzzle answer was: {gameWithJokers}");
+
+// Day 8 - 08.12.2023
+// Task 8.1
+ZZZManager zzzManager = new();
+var stepsRequiredToReachZZZ = zzzManager.GetStepsRequiredToReachZZZ();
+Console.WriteLine($"Task 8.1 - Your puzzle answer was: {stepsRequiredToReachZZZ}");
