@@ -9,6 +9,7 @@ using AdventOfCode2023.App.Day5;
 using AdventOfCode2023.App.Day6;
 using AdventOfCode2023.App.Day7;
 using AdventOfCode2023.App.Day8;
+using AdventOfCode2023.App.Day9;
 
 // Day 1 - 01.12.2023
 // Task 1.1
@@ -96,3 +97,12 @@ Console.WriteLine($"Task 7.2 - Your puzzle answer was: {gameWithJokers}");
 ZZZManager zzzManager = new();
 var stepsRequiredToReachZZZ = zzzManager.GetStepsRequiredToReachZZZ();
 Console.WriteLine($"Task 8.1 - Your puzzle answer was: {stepsRequiredToReachZZZ}");
+
+// Day 9 - 09.12.2023
+// Task 9.1
+MirageMaintenanceManager mirageMaintenanceManager = new();
+var sumOfExtrapolateForwards = mirageMaintenanceManager.GetSumOfExtrapolateForwards();
+Console.WriteLine($"Task 9.1 - Your puzzle answer was: {sumOfExtrapolateForwards}");
+
+var sumOfExtrapolateBackwards = mirageMaintenanceManager.GetSumOfExtrapolateBackwards();
+Console.WriteLine($"Task 9.2 - Your puzzle answer was: {sumOfExtrapolateBackwards}");
