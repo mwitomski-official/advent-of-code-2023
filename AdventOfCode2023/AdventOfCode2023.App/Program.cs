@@ -2,6 +2,7 @@
 
 
 using AdventOfCode2023.App.Day1;
+using AdventOfCode2023.App.Day10;
 using AdventOfCode2023.App.Day2;
 using AdventOfCode2023.App.Day3;
 using AdventOfCode2023.App.Day4;
@@ -106,3 +107,10 @@ Console.WriteLine($"Task 9.1 - Your puzzle answer was: {sumOfExtrapolateForwards
 
 var sumOfExtrapolateBackwards = mirageMaintenanceManager.GetSumOfExtrapolateBackwards();
 Console.WriteLine($"Task 9.2 - Your puzzle answer was: {sumOfExtrapolateBackwards}");
+
+// Day 10 - 10.12.2023
+// Task 10.1 - 6773 & Task 10.2 - 493
+PipeManager pipeManager = new();
+var pipeManagerResult = pipeManager.Execute();
+Console.WriteLine($"Task 10.1 - Your puzzle answer was: {pipeManagerResult.Item1}");
+Console.WriteLine($"Task 10.2 - Your puzzle answer was: {pipeManagerResult.Item2}");
