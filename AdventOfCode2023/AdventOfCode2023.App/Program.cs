@@ -3,6 +3,7 @@
 
 using AdventOfCode2023.App.Day1;
 using AdventOfCode2023.App.Day10;
+using AdventOfCode2023.App.Day11;
 using AdventOfCode2023.App.Day2;
 using AdventOfCode2023.App.Day3;
 using AdventOfCode2023.App.Day4;
@@ -114,3 +115,11 @@ PipeManager pipeManager = new();
 var pipeManagerResult = pipeManager.Execute();
 Console.WriteLine($"Task 10.1 - Your puzzle answer was: {pipeManagerResult.Item1}");
 Console.WriteLine($"Task 10.2 - Your puzzle answer was: {pipeManagerResult.Item2}");
+
+// Day 11 - 11.12.2023
+// Task 11.1 - 9200404
+CosmicExpansionManager cosmicExpansionManager = new();
+var sumOfLengtOfShortesPathBetweenEveryPairOfGalaxies = 
+    cosmicExpansionManager.GetSumOfLengtOfShortesPathBetweenEveryPairOfGalaxies();
+
+Console.WriteLine($"Task 11.1 - Your puzzle answer was: {sumOfLengtOfShortesPathBetweenEveryPairOfGalaxies}");
